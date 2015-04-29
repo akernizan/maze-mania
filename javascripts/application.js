@@ -25,7 +25,7 @@ function update(){
 	this.maze.render();
 
 	this.player = new Player(this.context);
-	// this.player.render();
+	this.player.render();
 	
 	requestAnimationFrame(update);
 }
