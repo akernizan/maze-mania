@@ -31,8 +31,8 @@ function update(){
 }
 
 function sizeCanvas(){
-	this.width = $(window).width()-50;
-	this.height = $(window).height()-50;
+	this.width = 1025;
+	this.height = 575;
 
 	this.canvas.width = this.width;
 	this.canvas.height = this.height;
