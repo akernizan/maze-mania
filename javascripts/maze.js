@@ -34,6 +34,10 @@ Maze.prototype.render = function(){
 	// right walls
 	context.fillRect(900,75,100,25);
 	context.fillRect(800,400,200,25);
+	context.fillRect(850,400,25,90);
+	context.fillRect(900,350,25,50);
+	context.fillRect(585,400,25,90);
+	context.fillRect(675,490,25,50);
 
 
 	//middle walls
