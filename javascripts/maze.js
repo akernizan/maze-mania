@@ -49,7 +49,7 @@ Maze.prototype.render = function(){
 	
 	//left wall 
 	context.fillRect(10,90, 170,t);
-	context.fillRect(10,200, 150,t);
+	context.fillRect(10,200, 120,t);
 	
 	//inner walls starting from left
 	context.fillRect(100, 350, t,108);
