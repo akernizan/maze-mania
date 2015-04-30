@@ -29,6 +29,9 @@ function update(){
 	this.maze = new Maze(this.context);
 	this.maze.render();
 
+	this.badge = new Badges(this.context);
+	this.badge.render();
+
 	requestAnimationFrame(update);
 }
 
@@ -77,7 +80,6 @@ function player(){
 
 $(function(){
 	init();
-	
 });
 
 
