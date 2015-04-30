@@ -36,7 +36,7 @@ function update(){
 }
 
 function sizeCanvas(){
-	this.width = 1025;
+	this.width = 1200;
 	this.height = 575;
 
 	this.canvas.width = this.width;
@@ -57,15 +57,15 @@ function keyListen(){
 		var code = event.keyCode;
 
 		if(code == 37){
-			playerX -= 15;
+			playerX -= 10;
 			
 		}else if(code == 39){
-			playerX += 15;
+			playerX += 10;
 			console.log(playerX);
 		}else if(code == 38){
-			playerY -= 15; 
+			playerY -= 10; 
 		}else if(code == 40){
-			playerY += 15; 
+			playerY += 10; 
 		}
 	});
 }
@@ -74,7 +74,7 @@ function player(){
 	context.strokeStyle ='#2dbd3a ';
   context.fillStyle = '#2dbd3a ';
   context.lineWidth = 3;
-  context.fillRect( playerX, playerY, 20, 20);
+  context.fillRect( playerX, playerY, 18, 18);
   context.stroke();
 }
 
