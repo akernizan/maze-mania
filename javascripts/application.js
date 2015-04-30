@@ -78,6 +78,11 @@ function player(){
   context.stroke();
 }
 
+function collide(object1, object2){
+	
+}
+
+
 $(function(){
 	init();
 });
