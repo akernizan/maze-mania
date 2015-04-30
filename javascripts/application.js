@@ -16,6 +16,7 @@ var playerY = 20;
 
 function init(){
 	requestAnimationFrame(update);
+	keyListen();
 }
 
 function update(){
@@ -23,7 +24,7 @@ function update(){
 	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
 	player();
-	keyListen();
+
 
 	this.maze = new Maze(this.context);
 	this.maze.render();
@@ -53,15 +54,15 @@ function keyListen(){
 		var code = event.keyCode;
 
 		if(code == 37){
-			playerX -= 1;
+			playerX -= 15;
 			
 		}else if(code == 39){
-			playerX += 1;
+			playerX += 15;
 			console.log(playerX);
 		}else if(code == 38){
-			playerY -= 1; 
+			playerY -= 15; 
 		}else if(code == 40){
-			playerY += 1; 
+			playerY += 15; 
 		}
 	});
 }
@@ -76,6 +77,7 @@ function player(){
 
 $(function(){
 	init();
+	
 });
 
 
