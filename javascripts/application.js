@@ -2,14 +2,15 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext("2d");
 
 var requestAnimationFrame = 
-						window.requestAnimationFrame ||
-						window.webkitRequestAnimationFrame ||
-						window.mozRequestAnimationFrame ||
-						window.oRequestAnimationFrame ||
-						window.msRequestAnimationFrame ||
-						function(callback) {
-							window.setTimeout(callback, 100/60);
-						}
+					window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					function(callback) {
+						window.setTimeout(callback, 1000/60);
+					}
+
 var playerX = 70;
 var playerY = 20;
 
@@ -18,7 +19,8 @@ function init(){
 }
 
 function update(){
-	
+	// clearCanvas();
+	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
 	player();
 	keyListen();
@@ -39,10 +41,6 @@ function sizeCanvas(){
 	$(this.canvas).css('left', 25).css('top', 25);
 }
 
-function setCartisian(){
-	 this.context.translate(this.width / 2, this.height / 2);
-  this.context.scale(1, -1);
-}
 
 function clearCanvas(){
 	var c = this.context;
@@ -53,16 +51,17 @@ function keyListen(){
 
 	$(window).keydown(function(event){
 		var code = event.keyCode;
-		// var thisPlayer = new Player(this.context);
 
 		if(code == 37){
-			playerX -= 0.1;
+			playerX -= 1;
+			
 		}else if(code == 39){
-			playerX += 0.1;
+			playerX += 1;
+			console.log(playerX);
 		}else if(code == 38){
-			playerY -= 0.1; 
+			playerY -= 1; 
 		}else if(code == 40){
-			playerY += 0.1; 
+			playerY += 1; 
 		}
 	});
 }
