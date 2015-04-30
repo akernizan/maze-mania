@@ -1,7 +1,6 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext("2d");
-var playerX = 0;
-var playerY = 0;
+
 var requestAnimationFrame = 
 						window.requestAnimationFrame ||
 						window.webkitRequestAnimationFrame ||
@@ -9,24 +8,24 @@ var requestAnimationFrame =
 						window.oRequestAnimationFrame ||
 						window.msRequestAnimationFrame ||
 						function(callback) {
-							window.setTimeout(callback, 1000/60);
+							window.setTimeout(callback, 100/60);
 						}
-
+var playerX = 70;
+var playerY = 20;
 
 function init(){
 	requestAnimationFrame(update);
 }
 
 function update(){
-	keyListen();
+	
 	sizeCanvas();
-	// setCartisian();
+	player();
+	keyListen();
+
 	this.maze = new Maze(this.context);
 	this.maze.render();
 
-	this.player = new Player(this.context);
-	this.player.render();
-	
 	requestAnimationFrame(update);
 }
 
@@ -57,18 +56,28 @@ function keyListen(){
 		// var thisPlayer = new Player(this.context);
 
 		if(code == 37){
-			playerX -= 2;
+			playerX -= 0.1;
 		}else if(code == 39){
-			playerX += 2;
+			playerX += 0.1;
 		}else if(code == 38){
-			playerY -= 2; 
+			playerY -= 0.1; 
 		}else if(code == 40){
-			playerY += 2; 
+			playerY += 0.1; 
 		}
 	});
 }
 
+function player(){
+	context.strokeStyle ='#2dbd3a ';
+  context.fillStyle = '#2dbd3a ';
+  context.lineWidth = 3;
+  context.fillRect( playerX, playerY, 20, 20);
+  context.stroke();
+}
 
 $(function(){
 	init();
 });
+
+
+
