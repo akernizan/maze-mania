@@ -84,22 +84,17 @@ function gameDirections(){
 	context.fillStyle = '#333';
 	context.font = 'bold 16px Arial';
 	context.fillText('Directions' , 1015,80);
-	// context.fillStyle = '#333';
-	// context.font = '12px Arial';
-	// // context.textAlign = 'left';
-	// context.fillText('Collect all of the badges.', 1015,100);
-	// context.fillText('Move the player using the' , 1015,120);
-	// context.fillText('up, down, left, and right arrow keys.', 1015,140);
-      var maxWidth = 200;
-      var lineHeight = 22;
-      var x = 1015;
-      var y = 100;
-      var text = 'Collect all of the badges. Move the player using the up, down, left, and right arrow keys.';
 
-      context.font = '12px Arial';
-      context.fillStyle = '#333';
+  var maxWidth = 200;
+  var lineHeight = 22;
+  var x = 1015;
+  var y = 100;
+  var text = 'Collect all of the badges by moving the player using the up, down, left, and right arrow keys.';
 
-      wrapText(context, text, x, y, maxWidth, lineHeight);
+  context.font = '12px Arial';
+  context.fillStyle = '#333';
+
+  wrapText(context, text, x, y, maxWidth, lineHeight);
 }
 
 function player(){
@@ -131,9 +126,9 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 
-// function collide(object2){
+function collide(object2){
 	
-// }
+}
 
 
 $(function(){
