@@ -24,7 +24,7 @@ function update(){
 	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
 	player();
-
+	collide();
 
 	this.maze = new Maze(this.context);
 	this.maze.render();
@@ -78,8 +78,10 @@ function player(){
   context.stroke();
 }
 
-function collide(object1, object2){
-	
+function collide(object2){
+	(playerY - object2.playerX) * (this.playerX - object2.playerX)  +
+  (playerY - object2.playerY) * (playerY - object2.playerY)
+  return false;
 }
 
 
