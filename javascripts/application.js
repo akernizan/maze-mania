@@ -26,7 +26,7 @@ function update(){
 	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
 	player();
-	// collide();
+	collide(this.maze);
 	gameScore();
 	gameDirections();
 
@@ -127,7 +127,16 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 
 
 function collide(object2){
-	
+	var distance = Math.sqrt(
+      (this.xPos - otherObj.xPos) * (this.xPos - otherObj.xPos)  +
+      (this.yPos - otherObj.yPos) * (this.yPos - otherObj.yPos)
+    );
+
+    if (distance < this.hitRadius + otherObj.hitRadius) {
+      return true;
+    } else {
+      return false;
+    };
 }
 
 
