@@ -50,6 +50,7 @@ _.extend(Game.protoype, {
 		var game = this;
 		var player = this.player;
 		var collection = [this.badge, this.maze];
+		var score = this.score
 
 		this.runInterval = setInterval(function(){
 			player.tick();
@@ -59,7 +60,12 @@ _.extend(Game.protoype, {
 				};
 			});
 
-
+			_.each(game.badge, function(badge){
+				if(player.collide(badge){
+					score += 5;
+					badge.remove();
+				})
+			})
 
 		})
 	}
