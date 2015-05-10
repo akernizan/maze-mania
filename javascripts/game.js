@@ -28,3 +28,24 @@ Game.prototype.setCanvas = function(){
     this.canvas = document.getElementById('maze-canvas');
     this.context = this.canvas.getContext('2d');
 }
+
+Game.prototype.keyListen = function() {
+	var that = this;
+
+	$(window).keydown(function(event){
+		var code = event.keyCode;
+		var thisPlayer = that.player;
+		
+		if(code == 37){
+			playerX -= 10;
+			
+		}else if(code == 39){
+			playerX += 10;
+			console.log(playerX);
+		}else if(code == 38){
+			playerY -= 10; 
+		}else if(code == 40){
+			playerY += 10; 
+		}
+	});
+}
