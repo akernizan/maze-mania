@@ -3,6 +3,8 @@ function Badges(context){
 	this.centerX = 350;
 	this.centerY = 400;
 	this.radius = 7;
+
+	this.class = 'badge';
 }
 
 Badges.prototype.render = function(){

@@ -66,8 +66,7 @@ _.extend(Game.protoype, {
 					badge.remove();
 				})
 			})
-
-		})
+		})//interval
 	}
 
 

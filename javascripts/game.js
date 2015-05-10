@@ -1,19 +1,37 @@
+var canvas = document.getElementById('maze-canvas');
+var context = canvas.getContext("2d");
+
+var requestAnimationFrame = 
+					window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					function(callback) {
+						window.setTimeout(callback, 1000/60);
+					}
+
 function Game() {
-	this.setCanvas();
-	this.sizeCanvas();
-	this.keyListen();
+	// this.setCanvas();
+	// this.sizeCanvas();
+	// this.keyListen();
 	// this.player();
 
-	gameScore();
-	gameDirections();
+	// gameScore();
+	// gameDirections();
 
 	this.maze = new Maze(this.context);
 	this.maze.render();
+
+	this.player = new Player(this.context);
+	this.player.render();
 
 	this.badge = new Badges(this.context);
 	this.badge.render();
 
 	 this.score = 0;
+
+	 this.setGameInterval();
 }
 
 Game.prototype.sizeCanvas = function() {
@@ -24,6 +42,7 @@ Game.prototype.sizeCanvas = function() {
 	this.canvas.height = this.height;
 
 	$(this.canvas).css('left', 25).css('top', 25);
+		
 };
 
 Game.prototype.setCanvas = function(){
@@ -55,6 +74,7 @@ Game.prototype.keyListen = function() {
 			thisPlayer.moveDown();
 		}
 		that.render();
+		that.collide();
 	});
 }
 
@@ -74,8 +94,14 @@ Game.prototype.setGameInterval = function(){
 	},30)
 }
 
-Game.prototype.collide = function() {
-
+Game.prototype.collide = function(otherObj) {
+	    if (this.xPos < otherObj.xPos + otherObj.width &&
+       this.xPos + this.width > otherObj.xPos &&
+       this.yPos < otherObj.yPos + otherObj.height &&
+       this.height + this.yPos > otherObj.yPos) {
+        return true
+    } else { return false }
+  
 }
 
  Game.prototype.wrapText = function(context, text, x, y, maxWidth, lineHeight) {
@@ -120,3 +146,8 @@ Game.prototype.gameScore = function() {
 	context.font = 'bold 26px Arial';
 	context.fillText('SCORE : ' + score, 1015,40);
 }
+
+$(function(){
+	Game();
+});
+

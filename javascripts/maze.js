@@ -1,6 +1,10 @@
 function Maze(context){
 	this.width = $(window).width();
 	this.height = $(window).height();
+	this.x = 0;
+	this.y = 0;
+
+	this.class = 'maze';
 }
 
 Maze.prototype.render = function(){

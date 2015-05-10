@@ -1,4 +1,4 @@
-var canvas = document.getElementById('canvas');
+var canvas = document.getElementById('maze-canvas');
 var context = canvas.getContext("2d");
 
 var requestAnimationFrame = 
@@ -15,6 +15,7 @@ var playerX = 70;
 var playerY = 20;
 
 var score = 0;
+var maze;
 
 function init(){
 	requestAnimationFrame(update);
@@ -40,7 +41,7 @@ function update(){
 }
 
 function sizeCanvas(){
-	this.width = 1250;
+	this.width = 1220;
 	this.height = 575;
 
 	this.canvas.width = this.width;
@@ -99,6 +100,7 @@ function gameDirections(){
 }
 
 function player(){
+	var player = 
 	context.strokeStyle ='#2dbd3a ';
   context.fillStyle = '#2dbd3a ';
   context.lineWidth = 3;
@@ -126,21 +128,11 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
   context.fillText(line, x, y);
 }
 
-
-// function collide(otherObj){
-// 	if (this.xPos < otherObj.xPos + otherObj.width &&
-//        this.xPos + this.width > otherObj.xPos &&
-//        this.yPos < otherObj.yPos + otherObj.height &&
-//        this.height + this.yPos > otherObj.yPos) {
-//         return true
-//     } else { return false }
-// }
-
 function collide() {
-
+	
   // Collision detection. Get a clip from the screen.
-  var clipWidth = 20;
-  var clipDepth = 20;
+  var clipWidth = 10;
+  var clipDepth = 10;
   var clipLength = clipWidth * clipDepth;
   // alert(clipLength);
   var clipOffset = 5;
@@ -148,17 +140,23 @@ function collide() {
 
   // Loop through the clip and see if you find red or blue. 
   for (var i = 0; i < clipLength * 4; i += 4) {
-    if (whatColor.data[i] == 255) {
-      alert("red");
+    if (whatColor.data[i] == 51) {
+      // alert("red");
+      playerX += 0;
+      playerY += 0;
+
       break;
     }
     // Second element is green but we don't care. 
-    if (whatColor.data[i + 2] == 255) {
-      alert("blue");
+    if (whatColor.data[i + 2] == 51) {
+      // alert("blue");
+      playerX += 0;
+      playerY += 0;
       break;
     }
     // Fourth element is alpha and we don't care. 
   }
+
 }
 
 
