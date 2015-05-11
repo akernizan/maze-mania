@@ -27,7 +27,7 @@ function update(){
 	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
 	player();
-
+	
 	gameScore();
 	gameDirections();
 
@@ -100,7 +100,6 @@ function gameDirections(){
 }
 
 function player(){
-	var player = 
 	context.strokeStyle ='#2dbd3a ';
   context.fillStyle = '#2dbd3a ';
   context.lineWidth = 3;
@@ -128,35 +127,13 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
   context.fillText(line, x, y);
 }
 
-function collide() {
-	
-  // Collision detection. Get a clip from the screen.
-  var clipWidth = 10;
-  var clipDepth = 10;
-  var clipLength = clipWidth * clipDepth;
-  // alert(clipLength);
-  var clipOffset = 5;
-  var whatColor = context.getImageData(playerX + clipOffset, playerY + clipOffset, clipWidth, clipDepth);
-
-  // Loop through the clip and see if you find red or blue. 
-  for (var i = 0; i < clipLength * 4; i += 4) {
-    if (whatColor.data[i] == 51) {
-      // alert("red");
-      playerX += 0;
-      playerY += 0;
-
-      break;
-    }
-    // Second element is green but we don't care. 
-    if (whatColor.data[i + 2] == 51) {
-      // alert("blue");
-      playerX += 0;
-      playerY += 0;
-      break;
-    }
-    // Fourth element is alpha and we don't care. 
-  }
-
+function collide(player,maze) {
+	if (player.playerX < maze.x + maze.width &&
+   player.playerX + player.width > maze.x &&
+   player.playerY < maze.y + maze.height &&
+   player.height + player.playerY > maze.y) {
+    
+	}
 }
 
 
