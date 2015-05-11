@@ -27,7 +27,6 @@ function update(){
 	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
 	player();
-	// collide(this.player,this.maze);
 
 	gameScore();
 	gameDirections();
@@ -41,6 +40,7 @@ function update(){
 	this.badge = new Badges(this.context);
 	this.badge.render();
 
+	collide(this.player,this.maze);
 	requestAnimationFrame(update);
 }
 
@@ -131,11 +131,11 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
   context.fillText(line, x, y);
 }
 
-function collide(palyer,otherObj) {
-	if (player.x < otherObj.x + otherObj.width &&
-   player.x + player.width > otherObj.x &&
-   player.y < otherObj.y + otherObj.height &&
-   player.height + player.y > otherObj.y) {
+function collide(player,otherObj) {
+	if (player.playerX < otherObj.x + otherObj.width &&
+   player.playerX + player.width > otherObj.x &&
+   player.playerY < otherObj.y + otherObj.height &&
+   player.height + player.playerY > otherObj.y) {
     if(otherObj.class = 'maze'){
     	playerX += 0;
     	playerY += 0;
