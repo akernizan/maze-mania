@@ -27,12 +27,16 @@ function update(){
 	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
 	player();
-	
+	// collide(this.player,this.maze);
+
 	gameScore();
 	gameDirections();
 
 	this.maze = new Maze(this.context);
 	this.maze.render();
+
+	// this.player = new Player(this.context);
+	// this.player.render();
 
 	this.badge = new Badges(this.context);
 	this.badge.render();
@@ -66,14 +70,14 @@ function keyListen(){
 			
 		}else if(code == 39){
 			playerX += 10;
-			console.log(playerX);
+			
 		}else if(code == 38){
 			playerY -= 10; 
 		}else if(code == 40){
 			playerY += 10; 
 		}
 	});
-	collide();
+	// collide();
 }
 
 function gameScore(){
@@ -127,12 +131,18 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
   context.fillText(line, x, y);
 }
 
-function collide(player,maze) {
-	if (player.playerX < maze.x + maze.width &&
-   player.playerX + player.width > maze.x &&
-   player.playerY < maze.y + maze.height &&
-   player.height + player.playerY > maze.y) {
-    
+function collide(palyer,otherObj) {
+	if (player.x < otherObj.x + otherObj.width &&
+   player.x + player.width > otherObj.x &&
+   player.y < otherObj.y + otherObj.height &&
+   player.height + player.y > otherObj.y) {
+    if(otherObj.class = 'maze'){
+    	playerX += 0;
+    	playerY += 0;
+    } else if(otherObj.class = 'badge'){
+    	this.badge.remove();
+    	score += 10;
+    }
 	}
 }
 
