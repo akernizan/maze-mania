@@ -27,6 +27,6 @@ Player.prototype.render = function(){
 		context.strokeStyle ='#2dbd3a ';
     context.fillStyle = '#2dbd3a ';
     context.lineWidth = 3;
-    context.fillRect( 70, 20, 20, 20);
+    context.fillRect( this.x, this.y, 18, 18);
     context.stroke();
 }
