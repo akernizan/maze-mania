@@ -8,19 +8,19 @@ function Player(context){
 }
 
 Player.prototype.moveRight = function(){
-	this.x += 5;
+	this.x += 10;
 }
 
 Player.prototype.moveLeft = function(){
-	this.x -= 5;
+	this.x -= 10;
 }
 
 Player.prototype.moveUp = function(){
-	this.y -= 5;
+	this.y -= 10;
 }
 
 Player.prototype.moveDown = function(){
-	this.y += 5;
+	this.y += 10;
 }
 
 Player.prototype.render = function(){
