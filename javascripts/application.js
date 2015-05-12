@@ -26,7 +26,7 @@ function update(){
 	// clearCanvas();
 	context.clearRect(0,0,this.width,this.height);
 	sizeCanvas();
-	player();
+	// player();
 
 	gameScore();
 	gameDirections();
@@ -34,13 +34,13 @@ function update(){
 	this.maze = new Maze(this.context);
 	this.maze.render();
 
-	// this.player = new Player(this.context);
-	// this.player.render();
+	user = new Player(this.context);
+	user.render();
 
-	this.badge = new Badges(this.context);
-	this.badge.render();
+	badge = new Badges(this.context);
+	badge.render();
 
-	collide(this.player,this.maze);
+	collide(user,this.maze);
 	requestAnimationFrame(update);
 }
 
@@ -66,15 +66,15 @@ function keyListen(){
 		var code = event.keyCode;
 
 		if(code == 37){
-			playerX -= 10;
+			user.moveLeft();
 			
 		}else if(code == 39){
-			playerX += 10;
+			user.moveRight();
 			
 		}else if(code == 38){
-			playerY -= 10; 
+			user.moveUp(); 
 		}else if(code == 40){
-			playerY += 10; 
+			user.moveDown(); 
 		}
 	});
 	// collide();
@@ -103,13 +103,13 @@ function gameDirections(){
   wrapText(context, text, x, y, maxWidth, lineHeight);
 }
 
-function player(){
-	context.strokeStyle ='#2dbd3a ';
-  context.fillStyle = '#2dbd3a ';
-  context.lineWidth = 3;
-  context.fillRect( playerX, playerY, 18, 18);
-  context.stroke();
-}
+// function player(){
+// 	context.strokeStyle ='#2dbd3a ';
+//   context.fillStyle = '#2dbd3a ';
+//   context.lineWidth = 3;
+//   context.fillRect( playerX, playerY, 18, 18);
+//   context.stroke();
+// }
 
 function wrapText(context, text, x, y, maxWidth, lineHeight) {
   var words = text.split(' ');
@@ -132,16 +132,16 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 function collide(player,otherObj) {
-	if (player.playerX < otherObj.x + otherObj.width &&
-   player.playerX + player.width > otherObj.x &&
-   player.playerY < otherObj.y + otherObj.height &&
-   player.height + player.playerY > otherObj.y) {
-    if(otherObj.class = 'maze'){
-    	playerX += 0;
-    	playerY += 0;
-    } else if(otherObj.class = 'badge'){
-    	this.badge.remove();
-    	score += 10;
+	if (player.x < otherObj.x + otherObj.width &&
+   player.x + player.width > otherObj.x &&
+   player.y < otherObj.y + otherObj.height &&
+   player.height + player.y > otherObj.y) {
+	    if(otherObj.class = 'maze'){
+	    	player.x += 0;
+	    	player.y += 0;
+	    } else if(otherObj.class = 'badge'){
+	    	badge.remove();
+	    	score += 10;
     }
 	}
 }
