@@ -75,7 +75,7 @@ function keyListen(){
 			
 		}else if(code == 38){
 			user.moveUp(); 
-			
+
 		}else if(code == 40){
 			user.moveDown(); 
 		}
@@ -134,6 +134,7 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
   context.fillText(line, x, y);
 }
 
+// add in width,heigth, x,y 
 function collide(player,otherObj) {
 	if (player.x < otherObj.x + otherObj.width &&
    player.x + player.width > otherObj.x &&
