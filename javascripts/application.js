@@ -41,6 +41,8 @@ function update(){
 	badge.render();
 
 	collide(user,this.maze);
+	collide(user,badge);
+
 	requestAnimationFrame(update);
 }
 
@@ -73,6 +75,7 @@ function keyListen(){
 			
 		}else if(code == 38){
 			user.moveUp(); 
+			
 		}else if(code == 40){
 			user.moveDown(); 
 		}
@@ -139,6 +142,7 @@ function collide(player,otherObj) {
 	    if(otherObj.class = 'maze'){
 	    	player.x += 0;
 	    	player.y += 0;
+
 	    } else if(otherObj.class = 'badge'){
 	    	badge.remove();
 	    	score += 10;
